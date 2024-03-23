@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AB1-Iy-PLg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AB1-Iy-PLg">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -105,7 +105,7 @@
                                                             <buttonConfiguration key="configuration" style="plain" image="UnCheckbox" cornerStyle="large" buttonSize="small"/>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Task:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mS1-8J-PZm">
-                                                            <rect key="frame" x="8" y="8" width="55" height="27"/>
+                                                            <rect key="frame" x="8" y="8" width="282" height="27"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                             <nil key="textColor"/>
@@ -122,7 +122,7 @@
                                             <outlet property="container" destination="mML-Rn-PhB" id="Kqr-de-VVK"/>
                                             <outlet property="taskDesc" destination="ehK-FJ-oXd" id="Hm0-lX-7aV"/>
                                             <outlet property="taskTitle" destination="mS1-8J-PZm" id="ykY-oy-tS0"/>
-                                            <segue destination="wZT-It-xhX" kind="presentation" id="Ku3-EP-exR"/>
+                                            <segue destination="wZT-It-xhX" kind="presentation" identifier="detailPage" id="Ku3-EP-exR"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -140,6 +140,7 @@
                     <connections>
                         <outlet property="calCollectionView" destination="sax-s5-uMR" id="QqF-Sq-k3K"/>
                         <outlet property="taskTableView" destination="vtU-2I-Jvw" id="nRc-ii-7eg"/>
+                        <segue destination="xbC-dV-6QO" kind="show" identifier="addPage" id="6N5-to-0Ky"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ut7-lg-bkg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -253,15 +254,17 @@
                                                 <color key="backgroundColor" red="0.96841150519999997" green="0.61142638049999998" blue="0.45324417410000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zsD-dt-VqW">
-                                                <rect key="frame" x="23" y="462" width="346" height="87"/>
+                                                <rect key="frame" x="23" y="450" width="346" height="87"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Create Task!" cornerStyle="fixed">
+                                                <buttonConfiguration key="configuration" style="filled" cornerStyle="fixed">
                                                     <backgroundConfiguration key="background" cornerRadius="20">
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </backgroundConfiguration>
-                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="onCreatePressed:" destination="xbC-dV-6QO" eventType="touchUpInside" id="Cad-uC-f3Z"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.96841150519999997" green="0.5001634264" blue="0.49316998579999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -283,6 +286,8 @@
                     <navigationItem key="navigationItem" id="80c-ua-FyQ"/>
                     <connections>
                         <outlet property="container" destination="b19-ae-jEp" id="kZz-DI-BzT"/>
+                        <outlet property="dueDate" destination="QfT-9A-d7D" id="D2E-mN-9td"/>
+                        <outlet property="submitButton" destination="zsD-dt-VqW" id="t3e-KG-8Sv"/>
                         <outlet property="taskDescField" destination="b19-ae-jEp" id="vqR-oh-DzB"/>
                         <outlet property="timelineContainer" destination="Mil-6S-aaW" id="xTO-kO-VJP"/>
                         <outlet property="wrapper" destination="vkH-SH-Lkr" id="16h-qI-iAt"/>
@@ -290,7 +295,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Ot-8T-AP9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3009.9236641221373" y="331.69014084507046"/>
+            <point key="canvasLocation" x="3033" y="332"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="df6-go-7mK">
@@ -312,6 +317,9 @@
                                             <color key="baseForegroundColor" systemColor="groupTableViewBackgroundColor"/>
                                             <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="onDeletePressed:" destination="wZT-It-xhX" eventType="touchUpInside" id="GpA-TJ-tax"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yp-Td-N5B">
                                         <rect key="frame" x="197" y="291" width="180" height="59"/>
@@ -321,6 +329,9 @@
                                             <color key="baseForegroundColor" systemColor="groupTableViewBackgroundColor"/>
                                             <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="onCompletePressed:" destination="wZT-It-xhX" eventType="touchUpInside" id="VbC-ew-qMr"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="raP-cl-m3I">
                                         <rect key="frame" x="16" y="358" width="361" height="59"/>
@@ -331,7 +342,7 @@
                                             <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="xbC-dV-6QO" kind="show" id="iid-Dx-v77"/>
+                                            <segue destination="xbC-dV-6QO" kind="show" identifier="add" id="iid-Dx-v77"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sB0-7M-HqV">
@@ -360,7 +371,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Due:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HO6-dm-3rd">
-                                                <rect key="frame" x="20" y="41" width="197" height="30"/>
+                                                <rect key="frame" x="20" y="41" width="274" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <nil key="textColor"/>
@@ -394,9 +405,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Idy-5z-YqB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2232.8244274809158" y="331.69014084507046"/>
+            <point key="canvasLocation" x="2226.7175572519081" y="1069.7183098591549"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="iid-Dx-v77"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="UnCheckbox" width="25" height="25"/>
         <image name="black-splash" width="50" height="30"/>
