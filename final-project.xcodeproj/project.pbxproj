@@ -18,7 +18,7 @@
 		372A346C2B8CBF5C003F18F9 /* CalCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372A346B2B8CBF5C003F18F9 /* CalCollectionCell.swift */; };
 		372A346E2B8D1404003F18F9 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372A346D2B8D1404003F18F9 /* TaskTableViewCell.swift */; };
 		372A34702B8D38CB003F18F9 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372A346F2B8D38CB003F18F9 /* InfoViewController.swift */; };
-		A5B0C6922BAE55CF00D66725 /* MyData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A5B0C6902BAE55CF00D66725 /* MyData.xcdatamodeld */; };
+		37F01C1D2BCB6F41004F8E08 /* MyData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37F01C1B2BCB6F41004F8E08 /* MyData.xcdatamodeld */; };
 		A5B0C6942BAE56E200D66725 /* MyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B0C6932BAE56E200D66725 /* MyTask.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,7 +36,7 @@
 		372A346B2B8CBF5C003F18F9 /* CalCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalCollectionCell.swift; sourceTree = "<group>"; };
 		372A346D2B8D1404003F18F9 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		372A346F2B8D38CB003F18F9 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
-		A5B0C6912BAE55CF00D66725 /* MyData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyData.xcdatamodel; sourceTree = "<group>"; };
+		37F01C1C2BCB6F41004F8E08 /* MyData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyData.xcdatamodel; sourceTree = "<group>"; };
 		A5B0C6932BAE56E200D66725 /* MyTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,8 +82,8 @@
 				372A34542B8BA7FA003F18F9 /* Assets.xcassets */,
 				372A34562B8BA7FA003F18F9 /* LaunchScreen.storyboard */,
 				372A34592B8BA7FA003F18F9 /* Info.plist */,
-				A5B0C6902BAE55CF00D66725 /* MyData.xcdatamodeld */,
 				A5B0C6932BAE56E200D66725 /* MyTask.swift */,
+				37F01C1B2BCB6F41004F8E08 /* MyData.xcdatamodeld */,
 			);
 			path = "final-project";
 			sourceTree = "<group>";
@@ -166,9 +166,9 @@
 				372A34642B8BAA64003F18F9 /* EditViewController.swift in Sources */,
 				372A346C2B8CBF5C003F18F9 /* CalCollectionCell.swift in Sources */,
 				372A34682B8BB569003F18F9 /* MainViewController.swift in Sources */,
-				A5B0C6922BAE55CF00D66725 /* MyData.xcdatamodeld in Sources */,
 				372A34702B8D38CB003F18F9 /* InfoViewController.swift in Sources */,
 				372A344E2B8BA7F8003F18F9 /* SceneDelegate.swift in Sources */,
+				37F01C1D2BCB6F41004F8E08 /* MyData.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,14 +391,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		A5B0C6902BAE55CF00D66725 /* MyData.xcdatamodeld */ = {
+		37F01C1B2BCB6F41004F8E08 /* MyData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				A5B0C6912BAE55CF00D66725 /* MyData.xcdatamodel */,
+				37F01C1C2BCB6F41004F8E08 /* MyData.xcdatamodel */,
 			);
-			currentVersion = A5B0C6912BAE55CF00D66725 /* MyData.xcdatamodel */;
+			currentVersion = 37F01C1C2BCB6F41004F8E08 /* MyData.xcdatamodel */;
 			name = MyData.xcdatamodeld;
-			path = "/Users/juju/comp3197-swift-final-project/comp3197-swift-final-project/final-project/MyData.xcdatamodeld";
+			path = "/Users/raneembarakat/Documents/comp3197-swift-final-project/final-project/MyData.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

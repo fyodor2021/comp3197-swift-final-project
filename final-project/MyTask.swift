@@ -1,10 +1,3 @@
-//
-//  MyTask.swift
-//  final-project
-//
-//  Created by J A on 2024-03-22.
-//
-
 import Foundation
 import CoreData
 
@@ -14,4 +7,6 @@ class MyTask: NSManagedObject{
     @NSManaged var id: NSNumber!
     @NSManaged var dueDate : Date?
     @NSManaged var desc: String!
+    @NSManaged var date : Date?
+
 }

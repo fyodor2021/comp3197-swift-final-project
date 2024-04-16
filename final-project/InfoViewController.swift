@@ -7,7 +7,15 @@
 
 import UIKit
 import CoreData
-class InfoViewController: UIViewController {
+protocol InfoViewControllerDelegate: AnyObject {
+    func infoViewControllerDidDismiss(_ infoViewController: InfoViewController)
+}
+class InfoViewController: UIViewController, EditViewControllerDelegate {
+    func editViewControllerDidDismiss(_ editViewController: EditViewController) {
+        
+        
+    }
+    weak var delegate: InfoViewControllerDelegate?
 
     @IBOutlet weak var dueLabel: UILabel!
     @IBOutlet weak var remainderLabel: UILabel!
@@ -17,11 +25,22 @@ class InfoViewController: UIViewController {
     var remainderLabelText = ""
     @IBOutlet weak var detailContainer: UIView!
     var selectedTask: MyTask!
+    
+    func editViewController(_ editViewController: EditViewController, didUpdateTask task: MyTask) {
+        updateLabels(task: task)
+        
+    }
 
     @IBOutlet weak var detailWrapper: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        updateLabels(task: selectedTask)
+      
+        detailContainer.layer.cornerRadius = 20
+        detailWrapper.layer.cornerRadius = 20
+    }
+    
+    func updateLabels(task: MyTask){
         let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
                 if let dueDate = selectedTask.dueDate {
@@ -59,8 +78,7 @@ class InfoViewController: UIViewController {
 
                 }
         
-        taskDesc.text = selectedTask.desc ?? "No description available";  detailContainer.layer.cornerRadius = 20
-        detailWrapper.layer.cornerRadius = 20
+        taskDesc.text = selectedTask.desc ?? "No description available";
     }
     
     @IBAction func onDeletePressed(_ sender: Any) {
@@ -68,13 +86,17 @@ class InfoViewController: UIViewController {
         let context: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
         if (selectedTask != nil){
             context.delete(selectedTask)
-            
+            if let index = taskList.firstIndex(where: { $0.id == selectedTask.id }) {
+                taskList.remove(at: index)
+            }
             do{
                 try context.save()
             }catch{
                 print("Error deleting the task")
             }
         }
+        self.delegate?.infoViewControllerDidDismiss(self)
+        dismiss(animated: true)
     }
     
     @IBAction func onCompletePressed(_ sender: Any) {
@@ -90,6 +112,8 @@ class InfoViewController: UIViewController {
                 print("Error deleting the task")
             }
         }
+        self.delegate?.infoViewControllerDidDismiss(self)
+        dismiss(animated: true)
     }
     
     
@@ -97,9 +121,16 @@ class InfoViewController: UIViewController {
         
             if let dest = segue.destination as? EditViewController {
                 dest.selectedTask = selectedTask
+                dest.delegate = self
                 }
             
             
+        }
+    override func viewWillDisappear(_ animated: Bool) {
+            super.viewWillDisappear(animated)
+            if isBeingDismissed {
+                self.delegate?.infoViewControllerDidDismiss(self)
+            }
         }
     
     /*
